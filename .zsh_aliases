@@ -1,0 +1,27 @@
+#This files contains only alias fo ZSH
+
+alias ls='ls --color=always'
+alias rm='rm -i'
+alias turboc='dosbox ~/TC &'
+alias lh='ls -lah'
+alias cd..='cd ..'
+alias ..='cd ..'
+alias update='sudo pacman -Syu'
+alias off='sudo shutdown now'
+alias svim='sudo -E vim'
+alias reload='source ~/.zshrc'
+#alias aStart='sudo systemctl start httpd.service'
+#alias aRestart='sudo systemctl restart httpd.service'
+#alias aStop='sudo systemctl stop httpd.service'
+alias gc='git clone --progress'
+alias g='g++ -std=c++11'
+#alias ise='/home/Xilinxs/14.7/ISE_DS/ISE/bin/lin64/ise &'
+
+function _dul() {
+    du --max-depth=1 $1 | sort -r -n | awk '{split("k m g",v); s=1; while($1>1024){$1/=1024; s++} print int($1)" "v[s]"\t"$2}'
+}
+
+alias sshTT='ssh -X -p 2222 -i ~/.vagrant.d/insecure_private_key vagrant@localhost'
+alias filesInDirectory='function _filesInDirectory() {du -a $1 | cut -d/ -f2 | sort | uniq -c | sort -nr};_filesInDirectory'
+alias scanSizes='_dul'
+
